@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA 6 Launch Kit</title>
+<meta name="description" content="Fan-made PDF kit for GTA 6 launch night: checklist, Leonida's 6 regions, first-hour plan, 15 golden rules. £1.99.">
+<meta name="theme-color" content="#0b0620">
+<meta property="og:title" content="GTA 6 Launch Kit (PDF)">
+<meta property="og:image" content="https://malishen1.github.io/rehberabi/img/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../img/hero.jpg">
+<style>
+/* Layout idea: one neon-sunset world. Full-bleed hero, then a 1120px column of glass panels on deep night violet. Single theme by choice. */
+:root{
+  color-scheme:dark;
+  --night:#0b0620; --night-2:#160a33;
+  --pink:#ff3d9a; --orange:#ff8a3d; --sun:#ffd166; --cyan:#35e0ff;
+  --text:#f4ecff; --muted:#b9a9d9;
+  --glass:rgba(255,255,255,.055); --line:rgba(255,255,255,.13);
+  --display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1120px; --r:18px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--night);color:var(--text);font:400 17px/1.6 var(--body);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+h2,h3{text-wrap:balance}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{width:min(var(--wrap),100% - 40px);margin-inline:auto}
+section{padding:clamp(64px,9vw,120px) 0;position:relative}
+.eyebrow{font:600 15px/1 var(--display);letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)}
+.h2{font:800 italic clamp(38px,6vw,68px)/.95 var(--display);text-transform:uppercase;margin:12px 0 14px}
+.lead{color:var(--muted);max-width:60ch}
+
+/* progress */
+.progress{position:fixed;inset:0 0 auto 0;height:3px;z-index:60;background:linear-gradient(90deg,var(--cyan),var(--pink),var(--orange));transform:scaleX(0);transform-origin:0 50%;will-change:transform}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100vh;min-height:100svh;padding:0;display:grid;align-items:center;overflow:hidden;isolation:isolate;--mx:0;--my:0;--sy:0}
+.hero-bg{position:absolute;inset:-6%;z-index:-5;will-change:transform;transform:translate3d(calc(var(--mx)*-14px),calc(var(--my)*-10px + var(--sy)*.28px),0)}
+.hero-bg i{position:absolute;inset:0;
+  background:
+    url("../img/hero.jpg") center/cover no-repeat,
+    radial-gradient(60% 45% at 50% 62%,#ffb347 0,#ff5e8a 28%,transparent 62%),
+    linear-gradient(180deg,#1a0b45 0,#5b1a7a 38%,#e0457b 62%,#2a0f4d 63%,#0b0620 100%);
+  animation:kenburns 28s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenburns{from{transform:scale(1.02)}to{transform:scale(1.16) translate3d(-1.5%,-1%,0)}}
+.sun{position:absolute;left:50%;top:56%;width:min(62vw,720px);aspect-ratio:1;margin:calc(min(62vw,720px)/-2) 0 0 calc(min(62vw,720px)/-2);z-index:-4;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,209,102,.55) 0,rgba(255,94,138,.28) 35%,transparent 68%);
+  mix-blend-mode:screen;animation:sun 5.5s ease-in-out infinite;will-change:transform,opacity;pointer-events:none}
+@keyframes sun{0%,100%{transform:scale(.94);opacity:.65}50%{transform:scale(1.08);opacity:1}}
+#fx{position:absolute;inset:0;width:100%;height:100%;z-index:-3;pointer-events:none}
+.shade{position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(11,6,32,.86) 0,rgba(11,6,32,.45) 55%,rgba(11,6,32,.2) 100%),linear-gradient(180deg,rgba(11,6,32,.35) 0,transparent 30%,transparent 70%,var(--night) 100%)}
+.scan{position:absolute;inset:0;z-index:5;pointer-events:none;opacity:.22;background:repeating-linear-gradient(180deg,rgba(0,0,0,.55) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
+.hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,72px);align-items:center;padding:96px 0 72px}
+.tag{display:inline-flex;gap:10px;align-items:center;padding:7px 14px;border:1px solid var(--line);border-radius:99px;background:rgba(11,6,32,.5);font:600 14px/1 var(--display);letter-spacing:.16em;text-transform:uppercase}
+.tag b{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px var(--pink);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.25}}
+.title{position:relative;margin:18px 0 6px;font:800 italic clamp(64px,12.5vw,172px)/.84 var(--display);text-transform:uppercase;letter-spacing:-.01em;padding:.06em .08em .1em 0}
+.title .line{display:block;white-space:nowrap}
+.title .l1{color:#fff;text-shadow:0 0 28px rgba(255,61,154,.75),0 3px 0 rgba(255,61,154,.9)}
+.title .l2{color:var(--sun);font-size:.62em;text-shadow:0 0 26px rgba(255,138,61,.7),0 3px 0 rgba(255,94,58,.9)}
+.title .ch{display:inline-block;white-space:pre}
+.js .title .ch{animation:letter .8s var(--ease) both;animation-delay:calc(var(--i)*55ms + 150ms)}
+@keyframes letter{from{opacity:0;transform:translate3d(0,.55em,0) rotate(7deg) scale(.9)}to{opacity:1;transform:none}}
+.sweep{position:absolute;inset:0;pointer-events:none}
+.sweep .win{position:absolute;top:0;bottom:0;left:0;width:18%;overflow:hidden;-webkit-mask-image:linear-gradient(100deg,transparent 5%,#000 50%,transparent 95%);mask-image:linear-gradient(100deg,transparent 5%,#000 50%,transparent 95%);animation:win 4.8s linear 1.6s infinite both;will-change:transform}
+.sweep .inner{position:absolute;top:0;left:0;width:calc(100%/.18);height:100%;padding:.06em .08em .1em 0;animation:winIn 4.8s linear 1.6s infinite both;will-change:transform}
+.sweep .line{color:#fff;text-shadow:none}
+/* window slides right while its copy of the text slides left by the same distance: a light band crosses the letters only */
+@keyframes win{0%{transform:translate3d(-120%,0,0)}45%,100%{transform:translate3d(660%,0,0)}}
+@keyframes winIn{0%{transform:translate3d(21.6%,0,0)}45%,100%{transform:translate3d(-118.8%,0,0)}}
+.sub{font-size:clamp(17px,1.6vw,20px);color:#e6dcfa;max-width:46ch;margin-top:10px}
+
+.count{display:flex;gap:10px;margin:26px 0 8px;flex-wrap:wrap}
+.count div{min-width:78px;padding:12px 10px 10px;text-align:center;border:1px solid var(--line);border-radius:14px;background:rgba(11,6,32,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.count b{display:block;font:800 clamp(34px,4.4vw,52px)/1 var(--display);font-variant-numeric:tabular-nums;color:#fff;text-shadow:0 0 18px rgba(53,224,255,.6)}
+.count span{font:600 12px/1 var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.count-note{font-size:14px;color:var(--muted)}
+
+.cta-row{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:24px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:17px 30px;border-radius:14px;text-decoration:none;color:#1a0420;
+  font:800 24px/1 var(--display);letter-spacing:.04em;text-transform:uppercase;
+  background:linear-gradient(100deg,var(--sun),var(--orange) 45%,var(--pink));overflow:hidden;isolation:isolate;
+  transition:transform .25s var(--ease)}
+.btn:hover{transform:translate3d(0,-2px,0) scale(1.03)}
+.btn:active{transform:scale(.98)}
+.btn::before{content:"";position:absolute;inset:0;z-index:1;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:translate3d(-160%,0,0) skewX(-20deg);animation:shine 3.2s ease-in-out infinite;will-change:transform}
+@keyframes shine{0%{transform:translate3d(-160%,0,0) skewX(-20deg)}45%,100%{transform:translate3d(360%,0,0) skewX(-20deg)}}
+.btn span{position:relative;z-index:2}
+.glow{position:relative;display:inline-block;border-radius:14px}
+.glow::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;box-shadow:0 0 44px 8px rgba(255,61,154,.75),0 0 90px 20px rgba(255,138,61,.4);animation:pulse 2.4s ease-in-out infinite;will-change:opacity}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.cta-note{font-size:14px;color:var(--muted);max-width:24ch}
+
+/* 3D cover */
+.stage{perspective:1100px;display:grid;place-items:center}
+.float{animation:float 6s ease-in-out infinite;will-change:transform}
+@keyframes float{0%,100%{transform:translate3d(0,-10px,0)}50%{transform:translate3d(0,12px,0)}}
+.cover{position:relative;width:min(340px,70vw);aspect-ratio:210/297;border-radius:10px;transform-style:preserve-3d;
+  transform:rotateY(calc(-16deg + var(--ry,0deg))) rotateX(calc(6deg + var(--rx,0deg)));transition:transform .18s ease-out;will-change:transform}
+.cover .face{position:absolute;inset:0;border-radius:inherit;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.18) inset;
+  background:linear-gradient(180deg,#24105a 0,#8a2a8c 42%,#ff5e8a 62%,#ffb347 74%,#1a0b3d 75%,#0b0620 100%);display:grid;align-content:space-between;padding:9% 8%}
+.cover .face em{font:600 13px/1 var(--display);letter-spacing:.24em;font-style:normal;text-transform:uppercase;color:var(--cyan)}
+.cover .face strong{font:800 italic 64px/.85 var(--display);text-transform:uppercase;color:#fff;text-shadow:0 0 20px rgba(255,61,154,.8)}
+.cover .face strong small{display:block;font-size:.55em;color:var(--sun)}
+.cover .face u{font:600 12px/1.3 var(--display);letter-spacing:.16em;text-decoration:none;text-transform:uppercase;color:#e6dcfa}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.cover .gloss{position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,rgba(255,255,255,.35) 0,transparent 32%,transparent 70%,rgba(255,255,255,.12) 100%);pointer-events:none;transform:translateZ(1px)}
+.cover .spine{position:absolute;top:1%;bottom:1%;right:-13px;width:14px;background:repeating-linear-gradient(180deg,#f3e9ff 0 2px,#cdbcec 2px 3px);transform:rotateY(90deg);transform-origin:left;border-radius:0 3px 3px 0}
+.cover .shadow{position:absolute;left:6%;right:-4%;bottom:-13%;height:12%;background:radial-gradient(closest-side,rgba(255,61,154,.55),transparent);transform:translateZ(-60px);filter:blur(6px)}
+
+/* ---------- MARQUEE ---------- */
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:linear-gradient(90deg,rgba(255,61,154,.16),rgba(53,224,255,.12));padding:16px 0}
+.track{display:flex;width:max-content;animation:marq 26s linear infinite;will-change:transform}
+.track span{font:800 italic 26px/1 var(--display);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;padding-right:.6em}
+.track span i{font-style:normal;color:var(--pink);padding:0 .45em}
+@keyframes marq{to{transform:translate3d(-50%,0,0)}}
+
+/* ---------- CARDS ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.card{position:relative;padding:26px 24px 24px;border:1px solid var(--line);border-radius:var(--r);background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .35s var(--ease);isolation:isolate}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;box-shadow:0 0 0 1px var(--pink),0 0 38px rgba(255,61,154,.5),0 0 80px rgba(53,224,255,.22);opacity:0;transition:opacity .35s}
+.card:hover{transform:translate3d(0,-6px,0)}
+.card:hover::before{opacity:1}
+.card .n{font:800 italic 44px/1 var(--display);color:transparent;-webkit-text-stroke:1.5px var(--cyan)}
+.card h3{font:800 26px/1.05 var(--display);text-transform:uppercase;letter-spacing:.02em;margin:10px 0 8px}
+.card p{font-size:15.5px;color:var(--muted)}
+
+/* reveal */
+.js .rv{opacity:0;transform:translate3d(0,28px,0);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--d,0)*70ms)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ---------- PREVIEW ---------- */
+.preview{background:radial-gradient(60% 60% at 50% 60%,rgba(255,61,154,.16),transparent 70%)}
+.fan{display:flex;justify-content:center;margin-top:56px;padding:20px 0 30px}
+.page{position:relative;flex:0 0 auto;width:min(250px,42vw);aspect-ratio:210/297;margin-inline:-38px;border-radius:10px;overflow:hidden;background:#f6efff;color:#2a1650;
+  box-shadow:0 24px 50px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.2);
+  transform:rotate(var(--rot)) translate3d(0,var(--ty),0);transition:transform .7s var(--ease);will-change:transform}
+.page:nth-child(1){--rot:-14deg;--ty:26px}.page:nth-child(2){--rot:-5deg;--ty:0px}.page:nth-child(3){--rot:5deg;--ty:0px}.page:nth-child(4){--rot:14deg;--ty:26px}
+.fan.straight .page,.fan:hover .page{transform:rotate(0) translate3d(var(--sx),0,0)}
+.page:nth-child(1){--sx:-46px}.page:nth-child(2){--sx:-15px}.page:nth-child(3){--sx:15px}.page:nth-child(4){--sx:46px}
+.page:hover{z-index:3}
+.fan .page:hover{transform:rotate(0) translate3d(var(--sx),-14px,0) scale(1.05)}
+.page .ph{position:absolute;inset:0;padding:12% 10%;display:grid;align-content:start;gap:8%}
+.page .ph b{font:800 22px/1 var(--display);text-transform:uppercase;color:#c2186b}
+.page .ph i{display:block;height:7px;border-radius:4px;background:#d9c9f3}
+.page .ph i:nth-of-type(3n){width:62%}.page .ph i:nth-of-type(4n){width:84%}
+.page img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* ---------- V2 BAND ---------- */
+.band{padding:0}
+.band-in{position:relative;overflow:hidden;border-radius:26px;padding:clamp(32px,5vw,60px);display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  background:linear-gradient(110deg,#2a0f6b,#b0267f 55%,#ff7a3d);border:1px solid rgba(255,255,255,.22)}
+.band-in::before{content:"V2";position:absolute;right:-10px;top:50%;font:800 italic 300px/1 var(--display);color:rgba(255,255,255,.09);transform:translateY(-50%);pointer-events:none}
+.band h2{font:800 italic clamp(34px,5vw,58px)/.95 var(--display);text-transform:uppercase}
+.band p{max-width:52ch;color:#ffe9f4;margin-top:10px}
+.chip{position:relative;flex:0 0 auto;padding:12px 20px;border-radius:99px;background:#0b0620;font:800 20px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--sun)}
+
+/* ---------- STEPS ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;counter-reset:s}
+.step{counter-increment:s;padding:28px 24px;border-radius:var(--r);border:1px solid var(--line);background:var(--glass);position:relative}
+.step::before{content:counter(s);display:grid;place-items:center;width:54px;height:54px;border-radius:50%;font:800 28px/1 var(--display);color:#1a0420;background:linear-gradient(135deg,var(--sun),var(--pink));margin-bottom:16px}
+.step h3{font:800 30px/1 var(--display);text-transform:uppercase}
+.step p{color:var(--muted);margin-top:8px;font-size:15.5px}
+.step:not(:last-child)::after{content:"→";position:absolute;right:-18px;top:38px;font:800 28px/1 var(--display);color:var(--cyan);z-index:2}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:780px;margin-top:36px;display:grid;gap:12px}
+.faq details{border:1px solid var(--line);border-radius:14px;background:var(--glass);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 56px 20px 22px;position:relative;font:600 21px/1.2 var(--display);letter-spacing:.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:22px;top:50%;font:600 30px/1 var(--display);color:var(--pink);transform:translateY(-50%);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{padding:0 22px 22px;color:var(--muted)}
+.faq details[open] p{animation:faq .35s var(--ease)}
+@keyframes faq{from{opacity:0;transform:translate3d(0,-8px,0)}}
+
+.final{text-align:center}
+.final .h2{margin-inline:auto}
+.final .lead{margin:0 auto 28px}
+
+footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--muted);font-size:14px}
+footer p{max-width:80ch}
+footer p+p{margin-top:8px}
+
+/* sticky buy bar (mobile) */
+.buybar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(11,6,32,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  transform:translate3d(0,110%,0);transition:transform .4s var(--ease)}
+.buybar.show{transform:none}
+.buybar div{font:600 15px/1.15 var(--display);letter-spacing:.06em;text-transform:uppercase}
+.buybar div small{display:block;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.buybar .btn{padding:13px 20px;font-size:19px}
+
+@media (max-width:900px){
+  .hero-in{grid-template-columns:1fr;padding:84px 0 56px}
+  .stage{order:-1;margin-bottom:-8px}
+  .cover{width:min(190px,46vw)}
+  .cover .face strong{font-size:38px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .step:not(:last-child)::after{content:"↓";right:auto;left:42px;top:auto;bottom:-24px}
+  .shade{background:linear-gradient(180deg,rgba(11,6,32,.55) 0,rgba(11,6,32,.6) 60%,var(--night) 100%)}
+}
+@media (max-width:720px){
+  .buybar{display:flex}
+  .page{margin-inline:-52px}
+}
+@media (max-width:520px){
+  .grid{grid-template-columns:1fr}
+  .count div{min-width:0;flex:1 1 0}
+  .btn{font-size:21px;padding:16px 24px}
+  .band-in::before{font-size:180px}
+}
+@media (hover:none){.fan:hover .page{transform:rotate(var(--rot)) translate3d(0,var(--ty),0)}.fan.straight .page{transform:rotate(0) translate3d(var(--sx),0,0)}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .sweep,.btn::before{display:none}
+  .hero-bg{transform:none}
+  #fx{display:none}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- 1. HERO -->
+<header class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true"><i></i></div>
+  <div class="sun" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="shade" aria-hidden="true"></div>
+  <div class="scan" aria-hidden="true"></div>
+
+  <div class="wrap hero-in">
+    <div>
+      <a href="../" style="position:absolute;top:22px;right:22px;z-index:9;font:600 14px/1 var(--display);letter-spacing:.12em;color:#fff;text-decoration:none;border:1px solid var(--line);padding:8px 12px;border-radius:99px;background:rgba(11,6,32,.5)">TR</a>
+      <span class="tag"><b></b>Fan-made PDF guide</span>
+      <h1 class="title" aria-label="GTA 6 Launch Kit">
+        <span class="line l1" aria-hidden="true">GTA 6</span>
+        <span class="line l2" aria-hidden="true">Launch Kit</span>
+        <span class="sweep" aria-hidden="true"><span class="win"><span class="inner"><span class="line l1">GTA 6</span><span class="line l2">Launch Kit</span></span></span></span>
+      </h1>
+      <p class="sub">Be ready for launch night. Checklist, Leonida map guide and first-hour plan in one PDF. No spoilers.</p>
+
+      <div class="count" id="count" role="timer" aria-label="Time until launch">
+        <div><b id="cd">00</b><span>Days</span></div>
+        <div><b id="ch">00</b><span>Hours</span></div>
+        <div><b id="cm">00</b><span>Min</span></div>
+        <div><b id="cs">00</b><span>Sec</span></div>
+      </div>
+      <p class="count-note" id="countNote">19 Nov 2026, 00:00 (Turkey time, 21:00 GMT on 18 Nov)</p>
+
+      <div class="cta-row">
+        <span class="glow"><a class="btn" data-buy href="https://buy.stripe.com/fZuaEYey17yo8OG8zBaEE05"><span>Get the kit · £1.99</span></a></span>
+        <p class="cta-note">One payment. Instant download. v2 free.</p>
+      </div>
+    </div>
+
+    <div class="stage" id="stage" aria-hidden="true">
+      <div class="float">
+        <div class="cover" id="cover">
+          <div class="shadow"></div>
+          <div class="spine"></div>
+          <div class="face">
+            <em>Fan guide</em>
+            <strong>GTA 6<small>Launch Kit</small></strong>
+            <u>Leonida · 6 regions · 15 rules</u>
+          </div>
+          <img src="../img/kapak.jpg" alt="" width="420" height="594" onerror="this.remove()">
+          <div class="gloss"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 2. MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="track" id="track">
+    <span>Checklist<i>•</i>Leonida 6 regions<i>•</i>First-hour plan<i>•</i>15 golden rules<i>•</i>v2 free<i>•</i></span>
+  </div>
+</div>
+
+<main>
+<!-- 3. KİTTE NE VAR -->
+<section id="icerik">
+  <div class="wrap">
+    <p class="eyebrow">9 sections, one PDF</p>
+    <h2 class="h2">What's inside?</h2>
+    <p class="lead">What to know before you press start, plus tracker pages to keep next to you on launch night.</p>
+    <div class="grid">
+      <article class="card rv"><span class="n">01</span><h3>Official info</h3><p>Release date, platforms and everything Rockstar has confirmed so far. No rumours.</p></article>
+      <article class="card rv"><span class="n">02</span><h3>Launch-night checklist</h3><p>Storage space, pre-load, account sign-in, controller charge. Tick them off one by one.</p></article>
+      <article class="card rv"><span class="n">03</span><h3>Leonida: 6 regions</h3><p>From Vice City to the Keys: the state's six regions and what waits in each.</p></article>
+      <article class="card rv"><span class="n">04</span><h3>Characters</h3><p>Jason, Lucia and the names revealed in the trailers. Who is who, short and clear.</p></article>
+      <article class="card rv"><span class="n">05</span><h3>First-hour plan</h3><p>A step-by-step roadmap so you don't waste your first 60 minutes.</p></article>
+      <article class="card rv"><span class="n">06</span><h3>15 golden rules</h3><p>Lessons from the earlier games in the series that save you from day-one mistakes.</p></article>
+      <article class="card rv"><span class="n">07</span><h3>Money tracker</h3><p>A printable sheet to log what you earn and spend.</p></article>
+      <article class="card rv"><span class="n">08</span><h3>Exploration tracker</h3><p>Tick off the regions you visit and what you find.</p></article>
+      <article class="card rv"><span class="n">09</span><h3>Glossary</h3><p>From wanted level to heist: the key GTA terms explained.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ÖNİZLEME -->
+<section class="preview" id="onizleme">
+  <div class="wrap">
+    <p class="eyebrow">Preview</p>
+    <h2 class="h2">4 pages from inside</h2>
+    <p class="lead">Hover to straighten the pages.</p>
+    <div class="fan" id="fan">
+      <figure class="page" style="margin-block:0"><div class="ph"><b>Launch-night checklist</b><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><img src="../img/s1.jpg" alt="Kit page 1: launch-night checklist" loading="lazy" width="500" height="707" onerror="this.remove()"></figure>
+      <figure class="page" style="margin-block:0"><div class="ph"><b>Leonida: 6 regions</b><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><img src="../img/s2.jpg" alt="Kit page 2: Leonida regions" loading="lazy" width="500" height="707" onerror="this.remove()"></figure>
+      <figure class="page" style="margin-block:0"><div class="ph"><b>First-hour plan</b><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><img src="../img/s3.jpg" alt="Kit page 3: first-hour plan" loading="lazy" width="500" height="707" onerror="this.remove()"></figure>
+      <figure class="page" style="margin-block:0"><div class="ph"><b>15 golden rules</b><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><img src="../img/s4.jpg" alt="Kit page 4: 15 golden rules" loading="lazy" width="500" height="707" onerror="this.remove()"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 5. V2 BAND -->
+<section class="band">
+  <div class="wrap">
+    <div class="band-in rv">
+      <div>
+        <h2>v2 lands on launch day</h2>
+        <p>We'll update the kit once the game is out. Everyone who buys now gets v2 free, sent to the email you use at checkout.</p>
+      </div>
+      <span class="chip">Free for buyers</span>
+    </div>
+  </div>
+</section>
+
+<!-- 6. ADIMLAR -->
+<section id="adimlar">
+  <div class="wrap">
+    <p class="eyebrow">3 steps</p>
+    <h2 class="h2">Pay, download, play ready</h2>
+    <div class="steps">
+      <div class="step rv"><h3>Pay</h3><p>£1.99, one-off. No subscription.</p></div>
+      <div class="step rv"><h3>Download</h3><p>Your PDF download page opens as soon as payment completes.</p></div>
+      <div class="step rv"><h3>Play ready</h3><p>Tick the list, read the plan, start smoothly on 19 November.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. SSS -->
+<section id="sss" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow">FAQ</p>
+    <h2 class="h2">Questions</h2>
+    <div class="faq">
+      <details name="sss" class="rv"><summary>Any spoilers?</summary><p>No. The kit only uses officially released information. No story leaks or spoilers.</p></details>
+      <details name="sss" class="rv"><summary>How can I pay?</summary><p>Card, Apple Pay or Google Pay via Stripe. The price is £1.99; your card converts it to your currency.</p></details>
+      <details name="sss" class="rv"><summary>How do I get v2?</summary><p>It's sent to the email you used at checkout. No extra cost, no need to buy again.</p></details>
+      <details name="sss" class="rv"><summary>Which platforms?</summary><p>PS5 and Xbox Series X|S. The checklist and first-hour plan are written for these consoles.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="h2">Ready for launch night?</h2>
+    <p class="lead">Cheaper than a coffee, v2 included.</p>
+    <span class="glow"><a class="btn" data-buy href="https://buy.stripe.com/fZuaEYey17yo8OG8zBaEE05"><span>Get the kit · £1.99</span></a></span>
+  </div>
+</section>
+</main>
+
+<!-- 8. FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>This is an independent fan-made guide. It is not affiliated with, endorsed by or connected to Rockstar Games or Take-Two Interactive. Grand Theft Auto and GTA are trademarks of their respective owners.</p>
+    <p>Images on this page and in the kit are original AI-generated artwork. No official logos or artwork are used.</p>
+  </div>
+</footer>
+
+<div class="buybar" id="buybar">
+  <div>GTA 6 Launch Kit<small id="barCount">19 Nov</small></div>
+  <a class="btn" data-buy href="https://buy.stripe.com/fZuaEYey17yo8OG8zBaEE05"><span>Buy · £1.99</span></a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  /* ======= AYARLAR ======= */
+  var BUY_URL = "https://buy.stripe.com/fZuaEYey17yo8OG8zBaEE05";                                  // ödeme bağlantını buraya yapıştır
+  var LAUNCH  = Date.UTC(2026, 10, 18, 21, 0, 0);     // 19 Kas 2026 00:00 TSİ (UTC+3)
+  /* ======================= */
+
+  var d = document, root = d.documentElement;
+  root.classList.add("js");
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function(id){ return d.getElementById(id); };
+
+  d.querySelectorAll("[data-buy]").forEach(function(a){ a.href = BUY_URL; if (/^https?:/.test(BUY_URL)) a.rel = "noopener"; });
+
+  /* headline letters */
+  var i = 0;
+  d.querySelectorAll(".title > .line").forEach(function(line){
+    var t = line.textContent; line.textContent = "";
+    Array.from(t).forEach(function(c){
+      var s = d.createElement("span"); s.className = "ch"; s.textContent = c; s.style.setProperty("--i", i++); line.appendChild(s);
+    });
+  });
+
+  /* marquee: duplicate for a seamless loop */
+  var track = $("track"); track.appendChild(track.firstElementChild.cloneNode(true));
+  var first = track.firstElementChild; // widen so one copy always covers the viewport
+  while (first.offsetWidth < innerWidth && first.childNodes.length < 200) {
+    first.innerHTML += first.innerHTML; track.lastElementChild.innerHTML = first.innerHTML;
+  }
+
+  /* countdown */
+  var cd = $("cd"), ch = $("ch"), cm = $("cm"), cs = $("cs"), bar = $("barCount");
+  var p2 = function(n){ return (n < 10 ? "0" : "") + n; };
+  function tick(){
+    var ms = LAUNCH - Date.now();
+    if (ms <= 0){
+      cd.textContent = ch.textContent = cm.textContent = cs.textContent = "00";
+      $("countNote").textContent = "GTA 6 is out. Have fun!";
+      bar.textContent = "Out now!";
+      return false;
+    }
+    var s = Math.floor(ms / 1000), D = Math.floor(s / 86400), H = Math.floor(s % 86400 / 3600), M = Math.floor(s % 3600 / 60), S = s % 60;
+    cd.textContent = p2(D); ch.textContent = p2(H); cm.textContent = p2(M); cs.textContent = p2(S);
+    bar.textContent = D + "d " + p2(H) + "h " + p2(M) + "m " + p2(S) + "s";
+    return true;
+  }
+  if (tick()) var timer = setInterval(function(){ if (!tick()) clearInterval(timer); }, 1000);
+
+  /* reveal on scroll, staggered within each group */
+  var rvs = d.querySelectorAll(".rv");
+  rvs.forEach(function(el){ el.style.setProperty("--d", Array.prototype.indexOf.call(el.parentNode.children, el) % 3); });
+  if ("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: .08 });
+    rvs.forEach(function(el){ io.observe(el); });
+    var fan = $("fan");
+    new IntersectionObserver(function(es){ fan.classList.toggle("straight", es[0].isIntersecting); },
+      { rootMargin: "-38% 0px -38% 0px" }).observe(fan);
+  } else {
+    rvs.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* scroll: progress bar, hero parallax, sticky bar — one rAF per frame */
+  var hero = $("hero"), prog = $("progress"), buybar = $("buybar"), ticking = false, heroOn = true;
+  function onScroll(){
+    ticking = false;
+    var y = scrollY, max = root.scrollHeight - innerHeight;
+    prog.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
+    heroOn = y < innerHeight;
+    if (heroOn && !reduce) hero.style.setProperty("--sy", y);
+    buybar.classList.toggle("show", y > innerHeight * .7 && y < max - 120);
+  }
+  addEventListener("scroll", function(){ if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  if (reduce) return;
+
+  /* mouse: parallax + cover tilt (eased) */
+  var cover = $("cover"), tx = 0, ty = 0, cx = 0, cy = 0, moving = false;
+  function ease(){
+    cx += (tx - cx) * .09; cy += (ty - cy) * .09;
+    hero.style.setProperty("--mx", cx.toFixed(3)); hero.style.setProperty("--my", cy.toFixed(3));
+    cover.style.setProperty("--ry", (cx * 22).toFixed(2) + "deg");
+    cover.style.setProperty("--rx", (cy * -16).toFixed(2) + "deg");
+    if (Math.abs(tx - cx) + Math.abs(ty - cy) > .002) requestAnimationFrame(ease); else moving = false;
+  }
+  function aim(x, y){ tx = x; ty = y; if (!moving){ moving = true; requestAnimationFrame(ease); } }
+  if (matchMedia("(pointer:fine)").matches){
+    hero.addEventListener("pointermove", function(e){
+      // cover leans toward the cursor: sign follows the cursor's offset from the cover's centre
+      var r = cover.getBoundingClientRect();
+      var x = (e.clientX - (r.left + r.width / 2)) / innerWidth, yv = (e.clientY - (r.top + r.height / 2)) / innerHeight;
+      aim(Math.max(-1, Math.min(1, x * 1.6)), Math.max(-1, Math.min(1, yv * 1.6)));
+    }, { passive: true });
+    hero.addEventListener("pointerleave", function(){ aim(0, 0); });
+  }
+
+  /* neon particles */
+  var cv = $("fx"), ctx = cv.getContext("2d"), W, H, dpr, parts = [], cols = ["255,61,154", "53,224,255", "255,209,102", "255,138,61"];
+  function size(){
+    dpr = Math.min(devicePixelRatio || 1, 1.5);
+    W = hero.clientWidth; H = hero.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.min(70, Math.round(W * H / 22000)); parts.length = 0;
+    for (var k = 0; k < n; k++) parts.push(make(true));
+  }
+  function make(any){
+    return { x: Math.random() * W, y: any ? Math.random() * H : H + 10, r: 1 + Math.random() * 2.4,
+      vy: .15 + Math.random() * .5, vx: (Math.random() - .5) * .25, a: .25 + Math.random() * .6,
+      ph: Math.random() * 6.28, c: cols[Math.random() * cols.length | 0] };
+  }
+  var last = 0;
+  function draw(t){
+    requestAnimationFrame(draw);
+    if (!heroOn || d.hidden) return;
+    var dt = Math.min(2.5, (t - last) / 16.7 || 1); last = t;
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = "lighter";
+    for (var k = 0; k < parts.length; k++){
+      var p = parts[k];
+      p.y -= p.vy * dt; p.x += (p.vx + Math.sin(t / 1400 + p.ph) * .18) * dt;
+      if (p.y < -12 || p.x < -12 || p.x > W + 12) parts[k] = p = make(false);
+      var al = p.a * (.6 + .4 * Math.sin(t / 600 + p.ph));
+      ctx.fillStyle = "rgba(" + p.c + "," + (al * .18).toFixed(3) + ")";
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 4, 0, 6.283); ctx.fill();
+      ctx.fillStyle = "rgba(" + p.c + "," + al.toFixed(3) + ")";
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+    }
+  }
+  size(); requestAnimationFrame(draw);
+  var rt; addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(size, 150); });
+})();
+</script>
+</body>
+</html>
